@@ -72,3 +72,27 @@ spec:
 ### 4. Скриншот curl
 ![image](https://github.com/user-attachments/assets/05677ef4-43e9-4fdd-af92-458389e92a37)
 
+## Задание 2. Создать Service и обеспечить доступ к приложениям снаружи кластера
+### 1. Манифест сервиса
+```
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service2
+spec:
+  selector:
+    app: nginx-multitool
+  type: NodePort
+  ports:
+    - name: nginx
+      port: 80
+      nodePort: 30901
+    - name: multitool
+      port: 1180
+      nodePort: 30902
+```
+### 2. Скринишот curl c хостовой ВМ
+![image](https://github.com/user-attachments/assets/4b174c5a-3a27-4276-b129-e5fd4a078015)
+
+
